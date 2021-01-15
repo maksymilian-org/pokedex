@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <app-item
+      *ngFor="let pokemon of pokemonService.pokemons | favorites"
+      [pokemon]="pokemon"
+    ></app-item>
+  </div>
+</div>

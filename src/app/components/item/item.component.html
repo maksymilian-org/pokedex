@@ -1,0 +1,18 @@
+<div class="col">
+  <a [routerLink]="['/pokemon', pokemon.id]">
+    <div class="item">
+      <span class="item-id">#{{ pokemon.id }}</span>
+      <span class="item-favorite" (click)="toggleFavorite($event, pokemon.id)">
+        <mat-icon aria-hidden="false" aria-label="Toggle favorite">
+          {{ pokemon.favorite ? "favorite" : "favorite_border" }}</mat-icon
+        >
+      </span>
+      <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
+      <h2 class="item-name">{{ pokemon.name | titlecase }}</h2>
+      <app-type
+        *ngFor="let type of pokemon.types"
+        [typeName]="type.type.name"
+      ></app-type>
+    </div>
+  </a>
+</div>

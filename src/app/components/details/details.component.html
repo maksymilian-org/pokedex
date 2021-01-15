@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="loading" *ngIf="!pokemon.name">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div class="details" *ngIf="pokemon.name">
+    <span class="details-id">#{{ pokemon.id }}</span>
+    <span class="details-favorite" (click)="toggleFavorite(pokemon.id)">
+      <mat-icon aria-hidden="false" aria-label="Toggle favorite">
+        {{ pokemon.favorite ? "favorite" : "favorite_border" }}</mat-icon
+      >
+    </span>
+    <img src="{{ pokemon.sprites.front_default }}" alt="{{ pokemon.name }}" />
+    <h2 class="details-name">{{ pokemon.name | titlecase }}</h2>
+    <app-type
+      *ngFor="let type of pokemon.types"
+      [typeName]="type.type.name"
+    ></app-type>
+    <p class="details-row">
+      <span>HEIGHT: </span> <strong>{{ pokemon.height }}</strong>
+    </p>
+    <p class="details-row">
+      <span>WEIGHT: </span> <strong>{{ pokemon.weight }}</strong>
+    </p>
+    <div class="details-stats">
+      <app-stat *ngFor="let stat of pokemon.stats" [stat]="stat"></app-stat>
+    </div>
+  </div>
+</div>

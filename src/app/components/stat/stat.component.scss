@@ -1,0 +1,17 @@
+.stat {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  & .value {
+    font-size: 45px;
+    color: #555;
+    font-weight: 700;
+  }
+
+  & .title {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 12px;
+  }
+}
